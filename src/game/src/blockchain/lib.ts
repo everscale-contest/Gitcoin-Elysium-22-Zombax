@@ -1,5 +1,5 @@
-import { Address, ProviderRpcClient, TvmException } from 'everscale-inpage-provider';
-import { EverscaleStandaloneClient } from 'everscale-standalone-client';
+import { Address, ProviderRpcClient, TvmException } from 'everscale-inpage-provider'
+import { EverscaleStandaloneClient } from 'everscale-standalone-client'
 
 import { contracts, state } from '../state/state'
 import { CarToken } from '../state/stateTypes'
@@ -8,6 +8,24 @@ const CollectionAbi = require('./abi/Collection.abi.json')
 
 declare var window: any
 let contract: any
+let selectedAddress: any
+
+const json = {
+  type: 'Basic NFT',
+  name: 'Sample Name 2',
+  description: 'Hello world!',
+  preview: {
+    source: 'https://everscale.network/images/Backgrounds/Main/main-hero.png',
+    mimetype: 'image/png',
+  },
+  files: [
+    {
+      source: 'https://everscale.network/images/Backgrounds/Main/main-hero.png',
+      mimetype: 'image/png',
+    },
+  ],
+  external_url: 'https://everscale.network',
+}
 
 const ever = new ProviderRpcClient({
   fallback: () =>
@@ -15,15 +33,16 @@ const ever = new ProviderRpcClient({
       //@ts-ignore
       connection: 'testnet',
     }),
-});
+})
 
 export const connectWallet = async () => {
-  await ever.ensureInitialized();
-  await ever.requestPermissions({
-    permissions: ['basic'],
-  });
-  const contractAddress = new Address(contracts.collection);
-  contract = new ever.Contract(CollectionAbi, contractAddress);
+  await ever.ensureInitialized()
+  const { accountInteraction } = await ever.requestPermissions({
+    permissions: ['basic', 'accountInteraction'],
+  })
+  const contractAddress = new Address(contracts.collection)
+  contract = new ever.Contract(CollectionAbi, contractAddress)
+  selectedAddress = accountInteraction?.address;
 }
 
 export const getCars = async () => {
@@ -38,7 +57,6 @@ export const getCars = async () => {
   //   })
   // })
   // console.log(state.ownedCars)
-
   // const onSaleCarsIds = await carsContractWithSigner.getAllOnSale()
   // onSaleCarsIds.forEach(async (onSaleCar) => {
   //   state.onSaleCars.push({
@@ -51,7 +69,24 @@ export const getCars = async () => {
   // console.log(state.onSaleCars)
 }
 
-export const mintRandomCar = async () => {
+export const mintBasicCar = async () => {
+  try {
+    console.log(selectedAddress)
+    const output = await contract.methods.mintNft({ json: JSON.stringify(json) }).send({
+      from: selectedAddress,
+      amount: '1000000000',
+      bounce: true,
+    });
+    // .call({
+    //   value: 1000000000,
+    // })
+    console.log(output)
+  } catch (e) {
+    if (e instanceof TvmException) {
+      console.error(e)
+    }
+  }
+
   // const receipt = await carsContractWithSigner.randomMint()
   // //   {
   // //   value: 10000000,
