@@ -1,18 +1,7 @@
 import { Contracts, State } from './stateTypes'
 
 export const contracts: Contracts = {
-  5: {
-    //goerli
-    carsContract: '0x0D50D84d7EBd272A7274eaD20FE7a14F4CE80987',
-    },
-  15555: {
-    //trust-testnet
-    carsContract: '0x935e00E8Ad0e8BBDfDFE1D7f742b7A2C56765421',
-  },
-  80001: {
-    //polygon-mumbai
-    carsContract: '0x648d0073b169ebFb413108ACcf4d5558959F58e0',
-  },
+  collection: "0:21f177d99ea2eaf852f56db37adbe7e102e15fcd07c2f1d22f4d01441f704347"
 }
 
 export let state: State = {
@@ -37,9 +26,6 @@ export let state: State = {
   // line width for each mountain color, in pixels
   mountainColorsLineWidth: [0, 70, 100, 110, 500],
   paused: false,
-  contracts: {
-    carsContract: undefined,
-  },
   ownedCars: [],
   onSaleCars: [],
   currentCar: null,

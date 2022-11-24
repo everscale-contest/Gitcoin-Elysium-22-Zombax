@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@broxus/await-semaphore@^0.1.5":
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/@broxus/await-semaphore/-/await-semaphore-0.1.5.tgz#e5fcf641dfa71ffc29210b1138e2157a32b422d9"
+  integrity sha512-g464HtHHKxk6r6bkZc+lET1PuSgcFxlLHVb7EAqfxTlx6DRcYkjPRIQQhRHB3BQ6zRpfMrYkppL0tBtRED+HNA==
+
 "@discoveryjs/json-ext@^0.5.0":
   version "0.5.7"
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
@@ -1035,6 +1040,11 @@ bech32@1.1.4:
   resolved "https://registry.yarnpkg.com/bech32/-/bech32-1.1.4.tgz#e38c9f37bf179b8eb16ae3a772b40c356d4832e9"
   integrity sha512-s0IrSOzLlbvX7yp4WBfPITzpAU8sqQcpsmwXDiKwrG4r491vwCO/XpejasRNl0piBMe/DvP4Tz0mIS/X1DPJBQ==
 
+bignumber.js@^9.1.0:
+  version "9.1.0"
+  resolved "https://registry.yarnpkg.com/bignumber.js/-/bignumber.js-9.1.0.tgz#8d340146107fe3a6cb8d40699643c302e8773b62"
+  integrity sha512-4LwHK4nfDOraBCtst+wOWIHbu1vhvAPJK8g8nROd4iuc3PSEjWif/qwbkh8jwCJz6yDBvtU4KPynETgrfh7y3A==
+
 binary-extensions@^2.0.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-2.2.0.tgz#75f502eeaf9ffde42fc98829645be4ea76bd9e2d"
@@ -1736,10 +1746,28 @@ eventemitter3@^4.0.0, eventemitter3@^4.0.7:
   resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-4.0.7.tgz#2de9b68f6528d5644ef5c59526a1b4a07306169f"
   integrity sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw==
 
-events@^3.2.0:
+events@^3.2.0, events@^3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/events/-/events-3.3.0.tgz#31a95ad0a924e2d2c419a813aeb2c4e878ea7400"
   integrity sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==
+
+everscale-inpage-provider@^0.3.45:
+  version "0.3.45"
+  resolved "https://registry.yarnpkg.com/everscale-inpage-provider/-/everscale-inpage-provider-0.3.45.tgz#7e5a55d07f1d496c7886d83c33887ec597d0dd1c"
+  integrity sha512-e28/9AyAOtpyz9xHa2eRJsPUNvM5jD/BVA8+GYk8bnLENczkbtZEf9Rp4m+1XTZblJedbY0Al8cMZV5IiKGa4g==
+
+everscale-standalone-client@^2.1.5:
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/everscale-standalone-client/-/everscale-standalone-client-2.1.5.tgz#070012e2385a894e334f9682e7bf365837f56166"
+  integrity sha512-dp5pCABzJsW+ZSfBUlSr3f8xRjYBOCxM8t7YaiA7dhMsC1rfmDRVoT5mgnOeyJPLq9k21XgZvLOJAF97PhmnRA==
+  dependencies:
+    "@broxus/await-semaphore" "^0.1.5"
+    bignumber.js "^9.1.0"
+    events "^3.3.0"
+    everscale-inpage-provider "^0.3.45"
+    fast-safe-stringify "^2.1.1"
+    nekoton-wasm "^1.0.5"
+    node-fetch "^2.6.7"
 
 evp_bytestokey@^1.0.0, evp_bytestokey@^1.0.3:
   version "1.0.3"
@@ -1831,6 +1859,11 @@ fast-json-stable-stringify@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/fast-json-stable-stringify/-/fast-json-stable-stringify-2.1.0.tgz#874bf69c6f404c2b5d99c481341399fd55892633"
   integrity sha512-lhd/wF+Lk98HZoTCtlVraHtfh5XYijIjalXck7saUtuanSDyLMxnHhSXEDJqHxD7msR8D0uCmqlkwjCV8xvwHw==
+
+fast-safe-stringify@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/fast-safe-stringify/-/fast-safe-stringify-2.1.1.tgz#c406a83b6e70d9e35ce3b30a81141df30aeba884"
+  integrity sha512-W+KJc2dmILlPplD/H4K9l9LcAHAfPtP6BY84uVLXQ6Evcz9Lcg33Y2z1IVblT6xdY54PXYVHEv+0Wpq8Io6zkA==
 
 fastest-levenshtein@^1.0.12:
   version "1.0.16"
@@ -2840,12 +2873,17 @@ negotiator@0.6.3:
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.3.tgz#58e323a72fedc0d6f9cd4d31fe49f51479590ccd"
   integrity sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==
 
+nekoton-wasm@^1.0.5:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/nekoton-wasm/-/nekoton-wasm-1.0.9.tgz#af807674b5326c589b95a79703ba38a1288bab04"
+  integrity sha512-OIr6p080TjYYfnW6YOca8dHuX96DoC/oyftE+3IpW8GMN0aEEAQ5xLm5t8Vz4ntJpthU6JcboR7dqFUroPT4Kw==
+
 neo-async@^2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
-"node-fetch@https://registry.npmjs.org/@achingbrain/node-fetch/-/node-fetch-2.6.7.tgz":
+node-fetch@^2.6.7, "node-fetch@https://registry.npmjs.org/@achingbrain/node-fetch/-/node-fetch-2.6.7.tgz":
   version "2.6.7"
   resolved "https://registry.npmjs.org/@achingbrain/node-fetch/-/node-fetch-2.6.7.tgz#1b5d62978f2ed07b99444f64f0df39f960a6d34d"
 

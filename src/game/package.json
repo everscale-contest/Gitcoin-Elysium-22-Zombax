@@ -19,6 +19,8 @@
     "crypto-browserify": "^3.12.0",
     "dotenv": "^16.0.1",
     "ethers": "^5.7.0",
+    "everscale-inpage-provider": "^0.3.45",
+    "everscale-standalone-client": "^2.1.5",
     "ipfs-http-client": "^58.0.1",
     "matter-js": "^0.18.0",
     "os-browserify": "^0.3.0",

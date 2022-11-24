@@ -17,16 +17,11 @@ export type State = {
   mountainColors: number[],
   mountainColorsLineWidth: number[],
   paused: boolean,
-  contracts: {
-    carsContract?: string
-  },
   ownedCars: CarToken[],
   onSaleCars: CarToken[],
   currentCar: CarToken | null,
 }
 
 export type Contracts = {
-  [networkId: number]: {
-    carsContract: string
-  }
+    collection: string
 }
