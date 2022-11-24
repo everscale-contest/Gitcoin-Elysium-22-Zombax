@@ -1,13 +1,13 @@
 ## Zombax
 
-Zombax is zombie smashing game on Polygon with upgradable NFTs and an integrated marketplace!
+Zombax is zombie smashing game on Everscale with upgradable NFTs and an integrated marketplace!
 
-![](https://vrf.zombax.io/assets/screenshots/home.png)
-![](https://vrf.zombax.io/assets/screenshots/demo2.png)
+![](https://ever.zombax.io/assets/screenshots/home.png)
+![](https://ever.zombax.io/assets/screenshots/demo2.png)
 
-# Demo Video
+# Demo Vide
 
-https://youtu.be/bMpc0qpHZIU
+Coming soon...
 
 # Concept
 
@@ -18,12 +18,12 @@ We propose to create a similar game where your car is a SMASHER NFT on-chain.
 # Mood Board
 
 The following Mood Board contains pictures courtesy of Earn To Die 2
-![](https://vrf.zombax.io/assets/screenshots/mood2.png)
+![](https://ever.zombax.io/assets/screenshots/mood2.png)
 
 # Designing smashers, upgrades, backgrounds, etc…
 
 We hired artist Robson Teixeira to create everything we’ll need for our game: smashers, garage, the upgradable elements and some elements of the game. Next is the proof from fiverr.com that we have paid him 621.17 euros so far to originally design all you’re going to see next. We own their full copyrights.
-![](https://vrf.zombax.io/assets/screenshots/fiverr.png)
+![](https://ever.zombax.io/assets/screenshots/fiverr.png)
 
 # Getting started
 
@@ -31,32 +31,32 @@ The player will first need a SMASHER NFT to play the game. When you open the gam
 
 Alternatively you can mint a random SMASHER thanks to chainlink VRF. It will cost you 1 MATIC (0 in the demo) and you may get a better SMASHER that what you would have gotten from the marketplace for that price (or a worse one, that's a like lootboxes, you don't know how valuable your random SMASHER will be).
 
-![](https://vrf.zombax.io/assets/screenshots/marketplace.png)
+![](https://ever.zombax.io/assets/screenshots/marketplace.png)
 
 # Upgradability
 
 Once you have purchased a SMASHER, you can select it and access the garage where you can upgrade it. Each upgrade costs SMASHER Coins, an in-game ERC20 currency that you earn at the end of each level depending on the number of zombies you have killed.
-![](https://vrf.zombax.io/assets/screenshots/garage-scene1.png)
+![](https://ever.zombax.io/assets/screenshots/garage-scene1.png)
 
 # Upgradability
 
 Once you have enough SMASHER Coins, you can upgrade your NFT SMASHER on-chain with new weapons, armor, wheels, etc and make it the perfect zombie killing machine.
-![](https://vrf.zombax.io/assets/screenshots/garage-scene2.png)
+![](https://ever.zombax.io/assets/screenshots/garage-scene2.png)
 
 # 2187
 
 That’s the number of unique combination your SMASHER NFT can have already, and we’re just getting started!
-![](https://vrf.zombax.io/assets/screenshots/configs.png)
+![](https://ever.zombax.io/assets/screenshots/configs.png)
 
 # How it works?
 
 Your SMASHER is dynamic NFT which means its metadata can be upgraded on-chain to equip your SMASHER with a gun, a booster, an armor, better wheels, etc…
 We prerender all combinations of SMASHER and assign it a code. Each digit corresponds to the level of upgrade of the corresponding part.
 For instance: This is SMASHER 0000000
-![](https://vrf.zombax.io/assets/screenshots/config1.png)
+![](https://ever.zombax.io/assets/screenshots/config1.png)
 
 An this is SMASHER 1220132
-![](https://vrf.zombax.io/assets/screenshots/config2.png)
+![](https://ever.zombax.io/assets/screenshots/config2.png)
 
 When upgrading a SMASHER NFT, we simply change the code in its metadata on-chain so the TokenURI points to the new pre-rendered configuration.
 
@@ -64,15 +64,15 @@ When upgrading a SMASHER NFT, we simply change the code in its metadata on-chain
 
 Each level is also a token! Its metadata contains the configuration of the level from the shape of the terrain to the position and strength of each zombie. Why is that? Because BattleSMASHERs is a metaverse when people can create and sell levels! From the map, you can see all levels and their ratings. The map will itself be another marketplace but for levels. You will be able to see the ratings of each level just like Happy Wheels (See next) so you can choose to purchase a level or not. Levels are NT-NFT, Non-Transfer NFT, you purchase them directly from its creator then you can play the level, but never resell it.
 
-![](https://vrf.zombax.io/assets/screenshots/happy-wheels.jpeg)
+![](https://ever.zombax.io/assets/screenshots/happy-wheels.jpeg)
 Image courtesy of Happy Wheels
 
-![](https://vrf.zombax.io/assets/screenshots/map-scene.png)
+![](https://ever.zombax.io/assets/screenshots/map-scene.png)
 Still under development!
 
 # Game flow
 
-![](https://vrf.zombax.io/assets/screenshots/flow2.png)
+![](https://ever.zombax.io/assets/screenshots/flow2.png)
 
 # Token Model
 
@@ -87,10 +87,10 @@ We have 3 tokens :
 # Demo
 
 We are far from done but we have already coded the basics of the project, available at:
-https://vrf.zombax.io
+https://ever.zombax.io
 
 We created an ERC721 smart contract for the SMASHERs and added metadata upgradability and marketplace functionalities. We also developed the first part of the game using the Phaser.js engine. The marketplace and garage are fully functional and you can already pilot your SMASHER in a physics sandbox (that is empty so far)
-To play de prototype, you'll need to install Metamask, connect it to the `Polygon Mumbai Testnet` and have some tokens to buy a SMASHER NFT. The SMASHER smart contract is deployed on https://mumbai.polygonscan.com/address/0x648d0073b169ebFb413108ACcf4d5558959F58e0
+To play de prototype, you'll need to install the EVER Wallet, connect it to the `Everscale Testnet` and have some tokens to buy a SMASHER NFT. The SMASHER smart contract is deployed on //TODO
 
 # Todo list
 
@@ -112,4 +112,4 @@ Email: waylad42@gmail.com
 
 Discord: waylad#4756
 
-![](https://vrf.zombax.io/assets/screenshots/zombie.png)
+![](https://ever.zombax.io/assets/screenshots/zombie.png)

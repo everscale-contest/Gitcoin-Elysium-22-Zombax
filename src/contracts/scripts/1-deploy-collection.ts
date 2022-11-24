@@ -27,12 +27,16 @@ async function main() {
         initial: ""
     },
   ]);
-  spinner.start(`Deploy Collection`);
+  // spinner.start(`Deploy Collection`);
   try {
     const Nft = await locklift.factory.getContractArtifacts("Nft");
+    console.log("Nft", Nft)
     const Index = await locklift.factory.getContractArtifacts("Index");
+    console.log("Index", Index)
     const IndexBasis = await locklift.factory.getContractArtifacts("IndexBasis");
+    console.log("IndexBasis", IndexBasis)
     const signer = (await locklift.keystore.getSigner("0"))!;
+    console.log("signer", signer)
     const { contract: collection, tx } = await locklift.factory.deployContract({
       contract: "Collection",
       publicKey: signer.publicKey,
@@ -47,6 +51,7 @@ async function main() {
       },
      value: locklift.utils.toNano(2),
     });
+    console.log("collection", collection)
     spinner.succeed(`Deploy Collection`);
     console.log(`Collection deployed at: ${collection.address.toString()}`);
   }
