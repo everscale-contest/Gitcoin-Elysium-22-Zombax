@@ -182,6 +182,8 @@ export class MarketplaceScene extends Phaser.Scene {
       try {
         await mintBasicCar()
         await getCars()
+        buttonText.setText('MINT BASIC SMASHER (1 EVER)')
+        this.scene.restart()
       } catch (e: any) {
         console.log(e)
         buttonText.setText('MINT BASIC SMASHER (1 EVER)')

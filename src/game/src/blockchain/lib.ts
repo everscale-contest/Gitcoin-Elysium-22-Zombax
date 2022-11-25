@@ -5,6 +5,7 @@ import { contracts, state } from '../state/state'
 import { CarToken } from '../state/stateTypes'
 
 const CollectionAbi = require('./abi/Collection.abi.json')
+const NftAbi = require('./abi/Nft.abi.json')
 
 declare var window: any
 let contract: any
@@ -74,18 +75,44 @@ export const getCars = async () => {
 
 export const mintBasicCar = async () => {
   try {
-    console.log(selectedAddress)
     const output = await contract.methods.mintNft({ json: JSON.stringify(json) }).send({
       from: selectedAddress,
       amount: '1000000000',
       bounce: true,
     })
 
-    state.onSaleCars.push({
-      tokenId: 0,
-      carCode: "0000000",
+    state.ownedCars.push({
+      tokenId: '0:452de784c62428be748484e7f015ade367c177068afe7f5ff7b2ded1cf53615c',
+      carCode: '00000000',
       price: 0,
       owned: true,
+    })
+
+    console.log(state)
+  } catch (e) {
+    if (e instanceof TvmException) {
+      console.error(e)
+    }
+  }
+}
+
+export const buyCar = async (carToken: CarToken) => {
+  // TODO
+}
+
+export const sellCar = async (carToken: CarToken, price: number) => {
+  // TODO
+}
+
+export const upgradeCar = async (carToken: CarToken) => {
+  try {
+    const nftContractAddress = new Address(carToken.tokenId)
+    const nftContract = new ever.Contract(NftAbi, nftContractAddress)
+    //@ts-ignore
+    const output = await nftContract.methods.setRarity({ rarity: 'custom' }).send({
+      from: selectedAddress,
+      amount: '1000000000',
+      bounce: true,
     })
 
     console.log(output)
@@ -94,34 +121,4 @@ export const mintBasicCar = async () => {
       console.error(e)
     }
   }
-
-  // const receipt = await carsContractWithSigner.randomMint()
-  // //   {
-  // //   value: 10000000,
-  // // })
-  // const tx = await receipt.wait()
-  // console.log(tx)
-}
-
-export const buyCar = async (carToken: CarToken) => {
-  // const receipt = await carsContractWithSigner.purchaseToken(carToken.tokenId, {
-  //   value: carToken.price,
-  // })
-  // const tx = await receipt.wait()
-  // console.log(tx)
-}
-
-export const sellCar = async (carToken: CarToken, price: number) => {
-  // const receipt = await carsContractWithSigner.setTokenSale(carToken.tokenId, true, price)
-  // const tx = await receipt.wait()
-  // console.log(tx)
-}
-
-export const upgradeCar = async (carToken: CarToken) => {
-  // const receipt = await carsContractWithSigner.updateTokenUri(
-  //   carToken.tokenId,
-  //   `https://ever.zombax.io/assets/cars/${carToken.carCode}.json`,
-  // )
-  // const tx = await receipt.wait()
-  // console.log(tx)
 }

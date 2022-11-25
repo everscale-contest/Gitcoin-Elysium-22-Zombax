@@ -1,5 +1,5 @@
 export type CarToken = {
-  tokenId: number
+  tokenId: string
   carCode: string
   price: number
   owned: boolean
