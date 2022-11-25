@@ -143,12 +143,12 @@ readdirSync('./out').forEach((f) => rmSync(`./out/${f}`))
 
 for (let car = 0; car <= 0; car++) {
   for (let boost = 0; boost <= 3; boost++) {
-    for (let weight = 0; weight <= 3; weight++) {
+    for (let weight = 0; weight <= 0; weight++) {
       for (let gun = 0; gun <= 3; gun++) {
-        for (let gear = 0; gear <= 3; gear++) {
+        for (let gear = 0; gear <= 0; gear++) {
           for (let armor = 0; armor <= 3; armor++) {
             for (let wheel = 0; wheel <= 3; wheel++) {
-              for (let fuel = 0; fuel <= 3; fuel++) {
+              for (let fuel = 0; fuel <= 0; fuel++) {
                 createImage(car, boost, weight, gun, gear, armor, wheel, fuel)
               }
             }
