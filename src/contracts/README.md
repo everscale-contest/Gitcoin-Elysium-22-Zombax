@@ -1,17 +1,25 @@
 # Standard Game Token
-***
+
+---
+
 ### How to use JSONAttributes library to generate dynamic attributes
+
 1. Add custom game params field to your NFT contract:
+
 ```solidity
 /// @notice Test game params for json attribute
 uint32 _points;
 string _rarity;
 ```
+
 2. Import `JSONAttributes` library:
+
 ```solidity
 import './libraries/JSONAttributes.sol';
 ```
+
 3. Override default `getJson()` function:
+
 ```solidity
 /// @notice Attribute types
 /// ANY - without quotation marks: uint, int, bool
@@ -21,6 +29,7 @@ enum ATTRIBUTE_TYPE {
     STRING
 }
 ```
+
 ```solidity
 /// See interfaces/ITIP4_2JSON_Metadata.sol
 function getJson() external view override responsible returns (string json) {
@@ -50,33 +59,34 @@ function getJson() external view override responsible returns (string json) {
     );
 }
 ```
+
 4. Json with dynamic attributes:
+
 ```json
 {
-    "type": "Basic NFT",
-    "name": "Sample Name",
-    "description": "Hello world!",
-    "preview": {
-        "source": "https://everscale.network/images/Backgrounds/Main/main-hero.png",
-        "mimetype": "image/png"
+  "type": "Basic NFT",
+  "name": "Zombax",
+  "description": "Hello world!",
+  "preview": {
+    "source": "https://everscale.network/images/Backgrounds/Main/main-hero.png",
+    "mimetype": "image/png"
+  },
+  "files": [
+    {
+      "source": "https://everscale.network/images/Backgrounds/Main/main-hero.png",
+      "mimetype": "image/png"
+    }
+  ],
+  "external_url": "https://everscale.network",
+  "attributes": [
+    {
+      "trait_type": "Points",
+      "value": 200
     },
-    "files": [
-        {
-        "source": "https://everscale.network/images/Backgrounds/Main/main-hero.png",
-        "mimetype": "image/png"
-        }
-    ],
-    "external_url": "https://everscale.network",
-    "attributes": [
-        {
-            "trait_type": "Points",
-            "value": 200
-        },
-        {
-            "trait_type": "Rarity",
-            "value": "Rare"
-        }
-    ]
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    }
+  ]
 }
 ```
- 

@@ -21,7 +21,7 @@ const client = create({
 // 01010330
 
 const template = `
-    <svg width="230" height="230" viewBox="0 0 230 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
         <!-- car -->
         <!-- boost -->
         <!-- weight -->
@@ -41,11 +41,22 @@ function randElement(arr) {
   return arr[Math.floor(Math.random() * arr.length)]
 }
 
-function getLayer(name, skip = 0.0) {
+function getLayer(name) {
   const svg = readFileSync(`./layers/${name}.svg`, 'utf-8')
   const re = /(?<=\<svg\s*[^>]*>)([\s\S]*?)(?=\<\/svg\>)/g
-  const layer = svg.match(re)[0]
-  return Math.random() > skip ? layer : ''
+  let layer = svg.match(re)[0]
+  layer = layer
+    .replace('xlink:href', 'href')
+    .replace('xlink:href', 'href')
+    .replace('xlink:href', 'href')
+    .replace('xlink:href', 'href')
+  layer = layer
+    .replace('clip-path', 'path')
+    .replace('clip-path', 'path')
+    .replace('clip-path', 'path')
+    .replace('clip-path', 'path')
+  //console.log(layer)
+  return layer
 }
 
 async function svgToPng(name) {
@@ -74,15 +85,15 @@ async function createImage(car, boost, weight, gun, gear, armor, wheel, fuel) {
   writeFileSync(`./out/${carCode}.svg`, image)
 
   // Step 2: Upload images to IPFS
-  const upload = await client.add(image)
-  console.log(`Car ${carCode} uploaded to ipfs://${upload.path}`)
+  // const upload = await client.add(image)
+  // console.log(`Car ${carCode} uploaded to ipfs://${upload.path}`)
 
   // Step 3: Generate Metadata
   const meta = {
     name: `Zombax Car ${carCode}`,
     description: 'A Zombax Upgradable Car',
     external_url: `https://ever.zombax.io/assets/cars/${carCode}.svg`,
-    image: `ipfs://${upload.path}`,
+    image: `https://ever.zombax.io/assets/cars/${carCode}.svg`, //`ipfs://${upload.path}`,
     attributes: [
       {
         car,

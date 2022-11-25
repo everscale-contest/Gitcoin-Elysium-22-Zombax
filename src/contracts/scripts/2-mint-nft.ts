@@ -6,7 +6,7 @@ async function main() {
   const spinner = ora();
   const json = {
     "type": "Basic NFT",
-    "name": "Sample Name",
+    "name": "Zombax",
     "description": "Hello world!",
     "preview": {
       "source": "https://everscale.network/images/Backgrounds/Main/main-hero.png",

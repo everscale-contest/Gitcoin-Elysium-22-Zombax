@@ -12,19 +12,19 @@ let selectedAddress: any
 
 const json = {
   type: 'Basic NFT',
-  name: 'Sample Name 2',
-  description: 'Hello world!',
+  name: 'Zombax Smasher',
+  description: 'Kill zombies! Upgrade your smasher! Kill more zombies!',
   preview: {
-    source: 'https://everscale.network/images/Backgrounds/Main/main-hero.png',
-    mimetype: 'image/png',
+    source: 'https://ever.zombax.io/assets/cars/00000000.svg',
+    mimetype: 'image/svg',
   },
   files: [
     {
-      source: 'https://everscale.network/images/Backgrounds/Main/main-hero.png',
-      mimetype: 'image/png',
+      source: 'https://ever.zombax.io/assets/cars/00000000.svg',
+      mimetype: 'image/svg',
     },
   ],
-  external_url: 'https://everscale.network',
+  external_url: 'https://ever.zombax.io',
 }
 
 const ever = new ProviderRpcClient({
@@ -42,7 +42,7 @@ export const connectWallet = async () => {
   })
   const contractAddress = new Address(contracts.collection)
   contract = new ever.Contract(CollectionAbi, contractAddress)
-  selectedAddress = accountInteraction?.address;
+  selectedAddress = accountInteraction?.address
 }
 
 export const getCars = async () => {
@@ -67,6 +67,9 @@ export const getCars = async () => {
   //   })
   // })
   // console.log(state.onSaleCars)
+
+  const output = await contract.methods.indexBasisCodeHash({ answerId: 0 }).call()
+  console.log(output)
 }
 
 export const mintBasicCar = async () => {
@@ -76,10 +79,15 @@ export const mintBasicCar = async () => {
       from: selectedAddress,
       amount: '1000000000',
       bounce: true,
-    });
-    // .call({
-    //   value: 1000000000,
-    // })
+    })
+
+    state.onSaleCars.push({
+      tokenId: 0,
+      carCode: "0000000",
+      price: 0,
+      owned: true,
+    })
+
     console.log(output)
   } catch (e) {
     if (e instanceof TvmException) {
