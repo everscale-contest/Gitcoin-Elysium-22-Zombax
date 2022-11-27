@@ -67,14 +67,14 @@ export class GarageScene extends Phaser.Scene {
     })
 
     const upgradeWeight = this.add.image(1236, 765, `upgradeWeight${indexWeight}`)
-    upgradeWeight.setInteractive({ cursor: 'pointer' })
-    upgradeWeight.on('pointerdown', () => {
-      indexWeight < 3 ? indexWeight += 1 : indexWeight = 0;
-      state.currentCar!.carCode = this.replaceAt(state.currentCar!.carCode, 2, `${indexWeight}`)
-      partWeight.setTexture(`weight${indexWeight}`)
-      upgradeWeight.setTexture(`upgradeWeight${indexWeight}`)
-      upgradeCar(state.currentCar!)
-    })
+    // upgradeWeight.setInteractive({ cursor: 'pointer' })
+    // upgradeWeight.on('pointerdown', () => {
+    //   indexWeight < 3 ? indexWeight += 1 : indexWeight = 0;
+    //   state.currentCar!.carCode = this.replaceAt(state.currentCar!.carCode, 2, `${indexWeight}`)
+    //   partWeight.setTexture(`weight${indexWeight}`)
+    //   upgradeWeight.setTexture(`upgradeWeight${indexWeight}`)
+    //   upgradeCar(state.currentCar!)
+    // })
 
     const upgradeGun = this.add.image(1007, 765, `upgradeGun${indexGun}`)
     upgradeGun.setInteractive({ cursor: 'pointer' })
@@ -87,14 +87,14 @@ export class GarageScene extends Phaser.Scene {
     })
 
     const upgradeGear = this.add.image(798, 765, `upgradeGear${indexGear}`)
-    upgradeGear.setInteractive({ cursor: 'pointer' })
-    upgradeGear.on('pointerdown', () => {
-      indexGear < 3 ? indexGear += 1 : indexGear = 0;
-      state.currentCar!.carCode = this.replaceAt(state.currentCar!.carCode, 4, `${indexGear}`)
-      partGear.setTexture(`gear${indexGear}`)
-      upgradeGear.setTexture(`upgradeGear${indexGear}`)
-      upgradeCar(state.currentCar!)
-    })
+    // upgradeGear.setInteractive({ cursor: 'pointer' })
+    // upgradeGear.on('pointerdown', () => {
+    //   indexGear < 3 ? indexGear += 1 : indexGear = 0;
+    //   state.currentCar!.carCode = this.replaceAt(state.currentCar!.carCode, 4, `${indexGear}`)
+    //   partGear.setTexture(`gear${indexGear}`)
+    //   upgradeGear.setTexture(`upgradeGear${indexGear}`)
+    //   upgradeCar(state.currentCar!)
+    // })
 
     const upgradeArmor = this.add.image(361, 765, `upgradeArmor${indexArmor}`)
     upgradeArmor.setInteractive({ cursor: 'pointer' })
@@ -117,14 +117,14 @@ export class GarageScene extends Phaser.Scene {
     })
 
     const upgradeFuel = this.add.image(580, 765, `upgradeFuel${indexFuel}`)
-    upgradeFuel.setInteractive({ cursor: 'pointer' })
-    upgradeFuel.on('pointerdown', () => {
-      indexFuel < 3 ? indexFuel += 1 : indexFuel = 0;
-      state.currentCar!.carCode = this.replaceAt(state.currentCar!.carCode, 7, `${indexFuel}`)
-      partFuel.setTexture(`fuel${indexFuel}`)
-      upgradeFuel.setTexture(`upgradeFuel${indexFuel}`)
-      upgradeCar(state.currentCar!)
-    })
+    // upgradeFuel.setInteractive({ cursor: 'pointer' })
+    // upgradeFuel.on('pointerdown', () => {
+    //   indexFuel < 3 ? indexFuel += 1 : indexFuel = 0;
+    //   state.currentCar!.carCode = this.replaceAt(state.currentCar!.carCode, 7, `${indexFuel}`)
+    //   partFuel.setTexture(`fuel${indexFuel}`)
+    //   upgradeFuel.setTexture(`upgradeFuel${indexFuel}`)
+    //   upgradeCar(state.currentCar!)
+    // })
 
     let buttonNext = this.add.image(this.sys.canvas.width - 200, this.sys.canvas.height - 300, 'button-play')
     buttonNext.setInteractive({ cursor: 'pointer' })

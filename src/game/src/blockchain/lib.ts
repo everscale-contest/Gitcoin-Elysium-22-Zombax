@@ -1,11 +1,14 @@
 import { Address, ProviderRpcClient, TvmException } from 'everscale-inpage-provider'
 import { EverscaleStandaloneClient } from 'everscale-standalone-client'
+import axios from 'axios'
+const { BigNumber } = require('ethers')
 
 import { contracts, state } from '../state/state'
 import { CarToken } from '../state/stateTypes'
 
 const CollectionAbi = require('./abi/Collection.abi.json')
 const NftAbi = require('./abi/Nft.abi.json')
+const NftIndexHelperAbi = require('./abi/NftIndexHelper.abi.json')
 
 declare var window: any
 let contract: any
@@ -47,30 +50,50 @@ export const connectWallet = async () => {
 }
 
 export const getCars = async () => {
-  // const ownedCarsIds = await carsContractWithSigner.getTokensOwnedByMe()
-  // ownedCarsIds.forEach(async (ownedCarsId) => {
-  //   const carMeta = await carsContractWithSigner.tokenMeta(ownedCarsId)
-  //   state.ownedCars.push({
-  //     tokenId: carMeta[0].toNumber(),
-  //     carCode: carMeta[3].replace('https://ever.zombax.io/assets/cars/', '').replace('.json', ''),
-  //     price: carMeta[1].toNumber(),
-  //     owned: true,
-  //   })
-  // })
-  // console.log(state.ownedCars)
-  // const onSaleCarsIds = await carsContractWithSigner.getAllOnSale()
-  // onSaleCarsIds.forEach(async (onSaleCar) => {
-  //   state.onSaleCars.push({
-  //     tokenId: onSaleCar[0].toNumber(),
-  //     carCode: onSaleCar[3].replace('https://ever.zombax.io/assets/cars/', '').replace('.json', ''),
-  //     price: onSaleCar[1].toNumber(),
-  //     owned: false,
-  //   })
-  // })
-  // console.log(state.onSaleCars)
+  // Get Index Code Hash
+  const nftIndexHelperContractAddress = new Address(
+    '0:b5c6d8226ebf452d2dbb1e6f957347fedaa5c3ac93fd8250ee6899a660c0297b',
+  )
+  const nftIndexHelperContract = new ever.Contract(NftIndexHelperAbi, nftIndexHelperContractAddress)
+  const output = await nftIndexHelperContract.methods
+    //@ts-ignore
+    .indexCodeHash({ collection: contracts.collection, owner: selectedAddress, answerId: 0 })
+    .call()
+  const indexCodeHash = BigNumber.from(output.indexCodeHash).toHexString().replace('0x', '')
 
-  const output = await contract.methods.indexBasisCodeHash({ answerId: 0 }).call()
-  console.log(output)
+  // Get NFTs
+  var data = JSON.stringify({
+    query: `query {
+  accounts (
+    filter : {
+      code_hash :{eq : "${indexCodeHash}"}
+    },
+  )
+  {
+      id
+  }
+}`,
+    variables: {},
+  })
+
+  var config = {
+    method: 'post',
+    url: 'https://devnet-sandbox.evercloud.dev/graphql',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: data,
+  }
+
+  const result = await axios(config)
+  console.log(result.data.data.accounts[3].id)
+
+  // Get NFTs info
+  const nftContractAddress = new Address(result.data.data.accounts[3].id)
+  const nftContract = new ever.Contract(NftAbi, nftContractAddress)
+  //@ts-ignore
+  const output2 = await nftContract.methods.getInfo({ answerId: 0 }).call()
+  console.log(output2)
 }
 
 export const mintBasicCar = async () => {
