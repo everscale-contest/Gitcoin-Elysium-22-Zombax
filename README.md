@@ -39,7 +39,7 @@ Alternatively you can mint a random SMASHER thanks to chainlink VRF. It will cos
 
 # Upgradability
 
-Once you have purchased a SMASHER, you can select it and access the garage where you can upgrade it. Each upgrade costs SMASHER Coins, an in-game ERC20 currency that you earn at the end of each level depending on the number of zombies you have killed.
+Once you have purchased a SMASHER, you can select it and access the garage where you can upgrade it. Each upgrade costs SMASHER Coins, an in-game currency that you earn at the end of each level depending on the number of zombies you have killed.
 ![](https://ever.zombax.io/assets/screenshots/garage-scene1.png)
 
 # Upgradability
@@ -93,15 +93,15 @@ We have 3 tokens :
 We are far from done but we have already coded the basics of the project, available at:
 https://ever.zombax.io
 
-We created an ERC721 smart contract for the SMASHERs and added metadata upgradability and marketplace functionalities. We also developed the first part of the game using the Phaser.js engine. The marketplace and garage are fully functional and you can already pilot your SMASHER in a physics sandbox (that is empty so far)
-To play de prototype, you'll need to install the EVER Wallet, connect it to the `Everscale Testnet` and have some tokens to buy a SMASHER NFT. The SMASHER smart contract is deployed on //TODO
+We forked and modified the StandardGameToken smart contract at https://github.com/itgoldio/everscale-tip-samples/tree/main/demo/StandardGameToken for the SMASHERs and added metadata upgradability and marketplace functionalities. We developed the game using the Phaser.js engine. The garage is fully functional and you can already pilot your SMASHER in a physics sandbox (that is empty so far)
+To play de prototype, you'll need to install the EVER Wallet, connect it to the `Everscale Testnet` and have some tokens to buy a SMASHER NFT. The SMASHER smart contract is deployed on 0:21f177d99ea2eaf852f56db37adbe7e102e15fcd07c2f1d22f4d01441f704347
 
 # Todo list
 
-- SMASHER D-NFT ERC721 + Marketplace Contract ✅
-- SMASHER COIN ERC20 Contract ✅
-- LEVELS NT-NFT ERC721 + Marketplace Contract ❌ (3-7 days to complete)
-- In-game SMASHER marketplace ✅
+- SMASHER D-NFT contract ✅
+- SMASHER COIN Contract ❌ (3-7 days to complete)
+- LEVELS NT-NFT + Marketplace Contract ❌ (13-17 days to complete)
+- In-game SMASHER marketplace ❌ (9-13 days to complete)
 - In-game Levels marketplace ❌ (9-13 days to complete)
 - Physics Sandbox ✅
 - Pilot your SMASHER NFT ✅
