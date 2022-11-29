@@ -7,7 +7,7 @@ Zombax is zombie smashing game on Everscale with upgradable NFTs!
 
 # Demo Video
 
-Uplaoding...
+https://youtu.be/3c1hQuDF82w
 
 # Play Demo
 
@@ -31,9 +31,7 @@ We hired artist Robson Teixeira to create everything we’ll need for our game: 
 
 # Getting started
 
-The player will first need a SMASHER NFT to play the game. When you open the game, the first screen is the SMASHER marketplace, where you can buy and sell your SMASHERs from other players. Some are already upgraded and quite expensive and some are low-level and cheap.
-
-Alternatively you can mint a random SMASHER thanks to chainlink VRF. It will cost you 1 MATIC (0 in the demo) and you may get a better SMASHER that what you would have gotten from the marketplace for that price (or a worse one, that's a like lootboxes, you don't know how valuable your random SMASHER will be).
+The player will first need a SMASHER NFT to play the game. We will later implement an ingame marketplace but for now you can mint a basic SMASHER for 1 EVER with entry level chassis, wheel, no weapon, etc...
 
 ![](https://ever.zombax.io/assets/screenshots/marketplace.png)
 
