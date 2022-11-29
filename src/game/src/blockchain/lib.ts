@@ -51,49 +51,49 @@ export const connectWallet = async () => {
 
 export const getCars = async () => {
   // Get Index Code Hash
-  const nftIndexHelperContractAddress = new Address(
-    '0:b5c6d8226ebf452d2dbb1e6f957347fedaa5c3ac93fd8250ee6899a660c0297b',
-  )
-  const nftIndexHelperContract = new ever.Contract(NftIndexHelperAbi, nftIndexHelperContractAddress)
-  const output = await nftIndexHelperContract.methods
-    //@ts-ignore
-    .indexCodeHash({ collection: contracts.collection, owner: selectedAddress, answerId: 0 })
-    .call()
-  const indexCodeHash = BigNumber.from(output.indexCodeHash).toHexString().replace('0x', '')
+//   const nftIndexHelperContractAddress = new Address(
+//     '0:b5c6d8226ebf452d2dbb1e6f957347fedaa5c3ac93fd8250ee6899a660c0297b',
+//   )
+//   const nftIndexHelperContract = new ever.Contract(NftIndexHelperAbi, nftIndexHelperContractAddress)
+//   const output = await nftIndexHelperContract.methods
+//     //@ts-ignore
+//     .indexCodeHash({ collection: contracts.collection, owner: selectedAddress, answerId: 0 })
+//     .call()
+//   const indexCodeHash = BigNumber.from(output.indexCodeHash).toHexString().replace('0x', '')
 
-  // Get NFTs
-  var data = JSON.stringify({
-    query: `query {
-  accounts (
-    filter : {
-      code_hash :{eq : "${indexCodeHash}"}
-    },
-  )
-  {
-      id
-  }
-}`,
-    variables: {},
-  })
+//   // Get NFTs
+//   var data = JSON.stringify({
+//     query: `query {
+//   accounts (
+//     filter : {
+//       code_hash :{eq : "${indexCodeHash}"}
+//     },
+//   )
+//   {
+//       id
+//   }
+// }`,
+//     variables: {},
+//   })
 
-  var config = {
-    method: 'post',
-    url: 'https://devnet-sandbox.evercloud.dev/graphql',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    data: data,
-  }
+//   var config = {
+//     method: 'post',
+//     url: 'https://devnet-sandbox.evercloud.dev/graphql',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     data: data,
+//   }
 
-  const result = await axios(config)
-  console.log(result.data.data.accounts[3].id)
+//   const result = await axios(config)
+//   console.log(result.data.data.accounts[3].id)
 
-  // Get NFTs info
-  const nftContractAddress = new Address(result.data.data.accounts[3].id)
-  const nftContract = new ever.Contract(NftAbi, nftContractAddress)
-  //@ts-ignore
-  const output2 = await nftContract.methods.getInfo({ answerId: 0 }).call()
-  console.log(output2)
+//   // Get NFTs info
+//   const nftContractAddress = new Address(result.data.data.accounts[3].id)
+//   const nftContract = new ever.Contract(NftAbi, nftContractAddress)
+//   //@ts-ignore
+//   const output2 = await nftContract.methods.getInfo({ answerId: 0 }).call()
+//   console.log(output2)
 }
 
 export const mintBasicCar = async () => {

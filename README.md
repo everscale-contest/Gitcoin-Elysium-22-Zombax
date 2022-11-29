@@ -1,6 +1,6 @@
 ## Zombax
 
-Zombax is zombie smashing game on Everscale with upgradable NFTs and an integrated marketplace!
+Zombax is zombie smashing game on Everscale with upgradable NFTs!
 
 ![](https://ever.zombax.io/assets/screenshots/home.png)
 ![](https://ever.zombax.io/assets/screenshots/demo2.png)
